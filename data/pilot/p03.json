@@ -1,0 +1,78 @@
+{
+  "id": "p03",
+  "category": "primality",
+  "split": "pilot_debug_only",
+  "problem_statement": "Return True exactly when n is prime, otherwise False. A prime is an integer greater than 1 with exactly two positive divisors: 1 and itself. n is any Python integer, excluding bool.",
+  "valid_input_domain": "Return True exactly when n is prime, otherwise False. A prime is an integer greater than 1 with exactly two positive divisors: 1 and itself. n is any Python integer, excluding bool.",
+  "function_signature": "is_prime(n)",
+  "reference_solution": "def is_prime(n):\n    if n < 2:\n        return False\n    divisor = 2\n    while divisor * divisor <= n:\n        if n % divisor == 0:\n            return False\n        divisor += 1\n    return True\n",
+  "faulty_solution": "def is_prime(n):\n    if n < 1:\n        return False\n    divisor = 2\n    while divisor * divisor <= n:\n        if n % divisor == 0:\n            return False\n        divisor += 1\n    return True\n",
+  "test_cases": [
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "negative",
+      "args": [
+        -7
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "two",
+      "args": [
+        2
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "prime",
+      "args": [
+        13
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "composite",
+      "args": [
+        12
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "square",
+      "args": [
+        49
+      ],
+      "expected": false,
+      "kind": "edge"
+    }
+  ],
+  "named_counterexample": "one",
+  "bug_explanation": "The lower-bound check allows 1 through; the divisor loop does not run, so 1 is incorrectly called prime.",
+  "provenance": "Custom pilot example, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-21",
+    "reviewer": "human",
+    "method": "interactive review with AI assistance",
+    "notes": "Specification, reference solution, faulty solution and named counterexample verified. Bug confirmed: guard changed from n<2 to n<1 lets n=1 through; divisor loop does not run for n=1, so function incorrectly returns True. n=0 correctly rejected because 0<1 is true. Counterexample one (n=1) discussed."
+  }
+}

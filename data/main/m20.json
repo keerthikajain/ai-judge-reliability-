@@ -1,0 +1,120 @@
+{
+  "id": "m20",
+  "category": "searching and index handling",
+  "split": "main_study",
+  "problem_statement": "Return the length of the longest consecutive run of identical elements in values. A run is a maximal sequence of consecutive equal elements. values is any Python list of integers (excluding bool), including an empty list. For an empty list return 0. Do not modify the input.",
+  "valid_input_domain": "Return the length of the longest consecutive run of identical elements in values. A run is a maximal sequence of consecutive equal elements. values is any Python list of integers (excluding bool), including an empty list. For an empty list return 0. Do not modify the input.",
+  "function_signature": "longest_run(values)",
+  "reference_solution": "def longest_run(values):\n    if len(values) == 0:\n        return 0\n    longest = 1\n    current = 1\n    for i in range(1, len(values)):\n        if values[i] == values[i - 1]:\n            current += 1\n        else:\n            current = 1\n        if current > longest:\n            longest = current\n    return longest\n",
+  "faulty_solution": "def longest_run(values):\n    if len(values) == 0:\n        return 0\n    longest = 1\n    current = 1\n    for i in range(1, len(values)):\n        if values[i] == values[i - 1]:\n            current += 1\n        if current > longest:\n            longest = current\n    return longest\n",
+  "test_cases": [
+    {
+      "name": "all_same",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_distinct",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_runs",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "alternating_runs",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_adjacent",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "scattered_runs",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 2,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "two_runs",
+  "bug_explanation": "The faulty solution omits the else branch that resets current to 1, so the running count never resets between different runs.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

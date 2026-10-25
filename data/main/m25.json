@@ -1,0 +1,86 @@
+{
+  "id": "m25",
+  "category": "integer arithmetic and boundaries",
+  "split": "main_study",
+  "problem_statement": "Return True if n is a perfect square (there exists an integer k such that k * k equals n), otherwise False. n is any Python integer (excluding bool). Negative numbers are not perfect squares.",
+  "valid_input_domain": "Return True if n is a perfect square (there exists an integer k such that k * k equals n), otherwise False. n is any Python integer (excluding bool). Negative numbers are not perfect squares.",
+  "function_signature": "is_perfect_square(n)",
+  "reference_solution": "def is_perfect_square(n):\n    if n < 0:\n        return False\n    k = 0\n    while k * k < n:\n        k += 1\n    return k * k == n\n",
+  "faulty_solution": "def is_perfect_square(n):\n    if n < 0:\n        return False\n    k = 0\n    while k * k <= n:\n        k += 1\n    return k * k == n\n",
+  "test_cases": [
+    {
+      "name": "four",
+      "args": [
+        4
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two",
+      "args": [
+        2
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "three",
+      "args": [
+        3
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "nine",
+      "args": [
+        9
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "negative",
+      "args": [
+        -1
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "sixteen",
+      "args": [
+        16
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "four",
+  "bug_explanation": "The faulty solution uses k * k <= n instead of k * k < n, so k overshoots the square root and the final equality check always fails for perfect squares.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

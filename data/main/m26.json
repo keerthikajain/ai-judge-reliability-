@@ -1,0 +1,103 @@
+{
+  "id": "m26",
+  "category": "small algorithms",
+  "split": "main_study",
+  "problem_statement": "Return True if s1 and s2 are anagrams of each other (case-insensitive), otherwise False. Both strings are lowercased using str.lower() before comparison. Two strings are anagrams if they contain the same characters with the same frequencies. s1 and s2 are any Python strings.",
+  "valid_input_domain": "Return True if s1 and s2 are anagrams of each other (case-insensitive), otherwise False. Both strings are lowercased using str.lower() before comparison. Two strings are anagrams if they contain the same characters with the same frequencies. s1 and s2 are any Python strings.",
+  "function_signature": "is_anagram(s1, s2)",
+  "reference_solution": "def is_anagram(s1, s2):\n    s1 = s1.lower()\n    s2 = s2.lower()\n    return sorted(s1) == sorted(s2)\n",
+  "faulty_solution": "def is_anagram(s1, s2):\n    return sorted(s1) == sorted(s2)\n",
+  "test_cases": [
+    {
+      "name": "same_case",
+      "args": [
+        "abc",
+        "bca"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "mixed_case",
+      "args": [
+        "Abc",
+        "bca"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "not_anagram",
+      "args": [
+        "hello",
+        "world"
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "both_empty",
+      "args": [
+        "",
+        ""
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "capital_anagram",
+      "args": [
+        "Listen",
+        "Silent"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_same",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "two_char_mixed",
+      "args": [
+        "Ab",
+        "Ba"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "different",
+      "args": [
+        "abc",
+        "def"
+      ],
+      "expected": false,
+      "kind": "adversarial"
+    },
+    {
+      "name": "unicode_anagram",
+      "args": [
+        "\u00c1B",
+        "b\u00e1"
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "mixed_case",
+  "bug_explanation": "The faulty solution omits the lower() calls on both strings, so characters differing only in case are treated as different.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

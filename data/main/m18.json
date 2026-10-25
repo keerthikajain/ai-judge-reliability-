@@ -1,0 +1,125 @@
+{
+  "id": "m18",
+  "category": "searching and index handling",
+  "split": "main_study",
+  "problem_statement": "Return the smallest zero-based index i where values[i] is strictly greater than threshold, or -1 if no such element exists. values is any Python list of integers (excluding bool), including an empty list; threshold is an integer. Do not modify the input.",
+  "valid_input_domain": "Return the smallest zero-based index i where values[i] is strictly greater than threshold, or -1 if no such element exists. values is any Python list of integers (excluding bool), including an empty list; threshold is an integer. Do not modify the input.",
+  "function_signature": "first_above(values, threshold)",
+  "reference_solution": "def first_above(values, threshold):\n    for i in range(len(values)):\n        if values[i] > threshold:\n            return i\n    return -1\n",
+  "faulty_solution": "def first_above(values, threshold):\n    for i in range(len(values)):\n        if values[i] >= threshold:\n            return i\n    return -1\n",
+  "test_cases": [
+    {
+      "name": "above_threshold",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        4
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "equals_threshold",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        5
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_above",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        [],
+        5
+      ],
+      "expected": -1,
+      "kind": "edge"
+    },
+    {
+      "name": "first_equals",
+      "args": [
+        [
+          5,
+          6,
+          7
+        ],
+        5
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_match",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        15
+      ],
+      "expected": -1,
+      "kind": "edge"
+    },
+    {
+      "name": "last_equals",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": -1,
+      "kind": "boundary"
+    },
+    {
+      "name": "repeated_threshold",
+      "args": [
+        [
+          4,
+          4,
+          4,
+          8
+        ],
+        4
+      ],
+      "expected": 3,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "equals_threshold",
+  "bug_explanation": "The faulty solution uses >= instead of >, so it returns the index of an element equal to the threshold rather than strictly above it.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

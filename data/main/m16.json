@@ -1,0 +1,143 @@
+{
+  "id": "m16",
+  "category": "searching and index handling",
+  "split": "main_study",
+  "problem_statement": "Return a list of all zero-based indices i where values[i] equals target, in ascending order. If target does not appear, return an empty list. values is any Python list of integers (excluding bool), including an empty list; target is an integer. Do not modify the input.",
+  "valid_input_domain": "Return a list of all zero-based indices i where values[i] equals target, in ascending order. If target does not appear, return an empty list. values is any Python list of integers (excluding bool), including an empty list; target is an integer. Do not modify the input.",
+  "function_signature": "find_all_indices(values, target)",
+  "reference_solution": "def find_all_indices(values, target):\n    result = []\n    for i in range(len(values)):\n        if values[i] == target:\n            result.append(i)\n    return result\n",
+  "faulty_solution": "def find_all_indices(values, target):\n    result = []\n    for i in range(len(values)):\n        if values[i] == target:\n            result.append(i)\n            break\n    return result\n",
+  "test_cases": [
+    {
+      "name": "multiple_matches",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": [
+        0,
+        2,
+        4
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_match",
+      "args": [
+        [
+          3,
+          4,
+          5
+        ],
+        4
+      ],
+      "expected": [
+        1
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_match",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        9
+      ],
+      "expected": [],
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        [],
+        1
+      ],
+      "expected": [],
+      "kind": "edge"
+    },
+    {
+      "name": "single_element_match",
+      "args": [
+        [
+          5
+        ],
+        5
+      ],
+      "expected": [
+        0
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "three_same",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_matches",
+      "args": [
+        [
+          2,
+          3,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        2
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "spread_matches",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        3
+      ],
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "multiple_matches",
+  "bug_explanation": "The faulty solution breaks after the first match, returning only the first index instead of all indices.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "description": "Selection log for the main study dataset (30 tasks, m01-m30).",
+  "selection_basis": "Tasks were selected based on category coverage and clear specifications. Selection was not based on judge performance. No tasks were excluded.",
+  "categories": [
+    "string processing",
+    "list transformations",
+    "dictionary/counting operations",
+    "searching and index handling",
+    "integer arithmetic and boundaries",
+    "small algorithms"
+  ],
+  "proposed_tasks": [
+    {
+      "id": "m01",
+      "category": "string processing",
+      "description": "count_vowels: count vowels case-insensitively; bug omits .lower()"
+    },
+    {
+      "id": "m02",
+      "category": "string processing",
+      "description": "is_palindrome: case-insensitive palindrome check; bug omits .lower()"
+    },
+    {
+      "id": "m03",
+      "category": "string processing",
+      "description": "count_occurrences: count char in string; bug assigns 1 instead of incrementing"
+    },
+    {
+      "id": "m04",
+      "category": "string processing",
+      "description": "uppercase_first: uppercase first char, keep rest; bug lowercases the rest"
+    },
+    {
+      "id": "m05",
+      "category": "string processing",
+      "description": "replace_char: replace all old with new; bug replaces old with old"
+    },
+    {
+      "id": "m06",
+      "category": "list transformations",
+      "description": "double_all: multiply each by 2; bug adds 2 instead of multiplying"
+    },
+    {
+      "id": "m07",
+      "category": "list transformations",
+      "description": "interleave: interleave two lists; bug reverses element order per pair"
+    },
+    {
+      "id": "m08",
+      "category": "list transformations",
+      "description": "sum_list: sum all elements; bug skips first element via values[1:]"
+    },
+    {
+      "id": "m09",
+      "category": "list transformations",
+      "description": "cumulative_sum: cumulative sums; bug appends value instead of running total"
+    },
+    {
+      "id": "m10",
+      "category": "list transformations",
+      "description": "rotate_left: rotate left by k; bug rotates right instead"
+    },
+    {
+      "id": "m11",
+      "category": "dictionary/counting operations",
+      "description": "char_frequency: char counts as dict; bug overwrites count to 1"
+    },
+    {
+      "id": "m12",
+      "category": "dictionary/counting operations",
+      "description": "invert_dict: swap keys/values; bug copies instead of inverting"
+    },
+    {
+      "id": "m13",
+      "category": "dictionary/counting operations",
+      "description": "merge_dicts: merge with sum for common keys; bug overwrites instead"
+    },
+    {
+      "id": "m14",
+      "category": "dictionary/counting operations",
+      "description": "most_frequent: most frequent, ties to first; bug uses >= so ties go to last"
+    },
+    {
+      "id": "m15",
+      "category": "dictionary/counting operations",
+      "description": "count_by_parity: count even/odd; bug assigns 1 instead of incrementing odd"
+    },
+    {
+      "id": "m16",
+      "category": "searching and index handling",
+      "description": "find_all_indices: all indices of target; bug breaks after first match"
+    },
+    {
+      "id": "m17",
+      "category": "searching and index handling",
+      "description": "binary_search: binary search; bug uses < instead of <=, misses last element"
+    },
+    {
+      "id": "m18",
+      "category": "searching and index handling",
+      "description": "first_above: first index > threshold; bug uses >= instead of >"
+    },
+    {
+      "id": "m19",
+      "category": "searching and index handling",
+      "description": "is_sorted: non-decreasing check; bug uses >= rejecting equal adjacents"
+    },
+    {
+      "id": "m20",
+      "category": "searching and index handling",
+      "description": "longest_run: longest run of identical elements; bug never resets current"
+    },
+    {
+      "id": "m21",
+      "category": "integer arithmetic and boundaries",
+      "description": "power_of_two: is n a power of 2; bug uses >= 1 so always returns False for powers"
+    },
+    {
+      "id": "m22",
+      "category": "integer arithmetic and boundaries",
+      "description": "ceil_div: ceiling division; bug returns floor division"
+    },
+    {
+      "id": "m23",
+      "category": "integer arithmetic and boundaries",
+      "description": "digit_sum: sum of digits; bug uses > 1 skipping last digit when it is 1"
+    },
+    {
+      "id": "m24",
+      "category": "integer arithmetic and boundaries",
+      "description": "count_digits: number of decimal digits; bug uses > 1 undercounting by 1"
+    },
+    {
+      "id": "m25",
+      "category": "integer arithmetic and boundaries",
+      "description": "is_perfect_square: is n a perfect square; bug overshoots and always returns False"
+    },
+    {
+      "id": "m26",
+      "category": "small algorithms",
+      "description": "is_anagram: anagram check case-insensitive; bug omits .lower()"
+    },
+    {
+      "id": "m27",
+      "category": "small algorithms",
+      "description": "kth_smallest: k-th smallest; bug returns k-th largest"
+    },
+    {
+      "id": "m28",
+      "category": "small algorithms",
+      "description": "has_duplicate: any duplicate; bug skips adjacent pairs"
+    },
+    {
+      "id": "m29",
+      "category": "small algorithms",
+      "description": "sorted_intersection: common elements sorted, deduplicated; bug skips deduplication"
+    },
+    {
+      "id": "m30",
+      "category": "small algorithms",
+      "description": "count_even_sum_pairs: pairs with even sum; bug skips adjacent pairs"
+    }
+  ],
+  "excluded_tasks": [],
+  "exclusion_reasons": [],
+  "statement": "Selection was based on category coverage, not judge performance. All 30 proposed tasks were included; none were excluded."
+}

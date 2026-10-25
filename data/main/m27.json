@@ -1,0 +1,132 @@
+{
+  "id": "m27",
+  "category": "small algorithms",
+  "split": "main_study",
+  "problem_statement": "Return the k-th smallest element of values (1-indexed: k=1 returns the minimum). values is a non-empty Python list of integers (excluding bool); k is a positive integer at most len(values). Do not modify the input.",
+  "valid_input_domain": "Return the k-th smallest element of values (1-indexed: k=1 returns the minimum). values is a non-empty Python list of integers (excluding bool); k is a positive integer at most len(values). Do not modify the input.",
+  "function_signature": "kth_smallest(values, k)",
+  "reference_solution": "def kth_smallest(values, k):\n    sorted_list = sorted(values)\n    return sorted_list[k - 1]\n",
+  "faulty_solution": "def kth_smallest(values, k):\n    sorted_list = sorted(values)\n    return sorted_list[len(values) - k]\n",
+  "test_cases": [
+    {
+      "name": "symmetric",
+      "args": [
+        [
+          3,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "smallest",
+      "args": [
+        [
+          3,
+          1,
+          4,
+          2
+        ],
+        1
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          5
+        ],
+        1
+      ],
+      "expected": 5,
+      "kind": "edge"
+    },
+    {
+      "name": "middle_symmetric",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        3
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "min_of_five",
+      "args": [
+        [
+          4,
+          2,
+          5,
+          1,
+          3
+        ],
+        1
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "second_of_four",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        2
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "middle_three",
+      "args": [
+        [
+          10,
+          20,
+          30
+        ],
+        2
+      ],
+      "expected": 20,
+      "kind": "edge"
+    },
+    {
+      "name": "fourth_of_five",
+      "args": [
+        [
+          5,
+          1,
+          4,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 4,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "smallest",
+  "bug_explanation": "The faulty solution returns sorted_list[len(values) - k] (the k-th largest) instead of sorted_list[k - 1] (the k-th smallest).",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

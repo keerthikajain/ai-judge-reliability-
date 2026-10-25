@@ -1,0 +1,24 @@
+Stage 1 creation-time execution (Linux; not the user Windows machine)
+python --version
+Python 3.12.14
+
+python -c "import pytest; print('pytest', pytest.__version__)"
+ModuleNotFoundError: No module named 'pytest'
+
+python -m venv .venv
+Exit 0 (no output)
+
+.venv/bin/python -m pip install pytest==8.3.5
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pytest-8.3.5
+
+python build_stage1.py
+Created 16 project files; pilot items: 5
+(The generation-only script is excluded from the deliverable.)
+
+.venv/bin/python -m src.run_validation
+..............................x............ [100%]
+XFAIL tests/test_stage1.py::test_faulty_ordinary_pass[p05]
+Reason: excluding n fails every n > 0; only boundary n=0 passes.
+42 passed, 1 xfailed in 0.06s
+Report: outputs/pilot/stage1_validation.json
+Exit 0

@@ -1,0 +1,137 @@
+{
+  "id": "m15",
+  "category": "dictionary/counting operations",
+  "split": "main_study",
+  "problem_statement": "Return a dictionary with keys \"even\" and \"odd\" mapping to the count of even and odd integers in values, respectively. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "valid_input_domain": "Return a dictionary with keys \"even\" and \"odd\" mapping to the count of even and odd integers in values, respectively. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "function_signature": "count_by_parity(values)",
+  "reference_solution": "def count_by_parity(values):\n    result = {\"even\": 0, \"odd\": 0}\n    for v in values:\n        if v % 2 == 0:\n            result[\"even\"] += 1\n        else:\n            result[\"odd\"] += 1\n    return result\n",
+  "faulty_solution": "def count_by_parity(values):\n    result = {\"even\": 0, \"odd\": 0}\n    for v in values:\n        if v % 2 == 0:\n            result[\"even\"] += 1\n        else:\n            result[\"odd\"] = 1\n    return result\n",
+  "test_cases": [
+    {
+      "name": "mixed",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": {
+        "even": 2,
+        "odd": 3
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_even",
+      "args": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "expected": {
+        "even": 3,
+        "odd": 0
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": {
+        "even": 0,
+        "odd": 0
+      },
+      "kind": "edge"
+    },
+    {
+      "name": "single_odd",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": {
+        "even": 0,
+        "odd": 1
+      },
+      "kind": "edge"
+    },
+    {
+      "name": "single_even",
+      "args": [
+        [
+          2
+        ]
+      ],
+      "expected": {
+        "even": 1,
+        "odd": 0
+      },
+      "kind": "edge"
+    },
+    {
+      "name": "multiple_odd",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "expected": {
+        "even": 0,
+        "odd": 4
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_even_four",
+      "args": [
+        [
+          2,
+          4,
+          6,
+          8
+        ]
+      ],
+      "expected": {
+        "even": 4,
+        "odd": 0
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "one_odd",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": {
+        "even": 1,
+        "odd": 1
+      },
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "mixed",
+  "bug_explanation": "The faulty solution assigns 1 instead of incrementing for the odd count, so any list with odd numbers reports at most 1 odd.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

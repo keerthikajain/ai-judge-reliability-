@@ -1,0 +1,112 @@
+{
+  "id": "m28",
+  "category": "small algorithms",
+  "split": "main_study",
+  "problem_statement": "Return True if values contains any duplicate element, otherwise False. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "valid_input_domain": "Return True if values contains any duplicate element, otherwise False. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "function_signature": "has_duplicate(values)",
+  "reference_solution": "def has_duplicate(values):\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] == values[j]:\n                return True\n    return False\n",
+  "faulty_solution": "def has_duplicate(values):\n    for i in range(len(values)):\n        for j in range(i + 2, len(values)):\n            if values[i] == values[j]:\n                return True\n    return False\n",
+  "test_cases": [
+    {
+      "name": "non_adjacent_dup",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "adjacent_dup",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "distant_dup",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "three_same",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "adjacent_only",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "pair_only",
+      "args": [
+        [
+          4,
+          4
+        ]
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "adjacent_dup",
+  "bug_explanation": "The faulty solution uses range(i + 2, ...) instead of range(i + 1, ...), so adjacent elements are never compared and adjacent duplicates are missed.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

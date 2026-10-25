@@ -1,0 +1,86 @@
+{
+  "id": "m04",
+  "category": "string processing",
+  "split": "main_study",
+  "problem_statement": "Return a copy of s with the first character uppercased and all remaining characters unchanged. If s is empty, return the empty string. s is any Python string.",
+  "valid_input_domain": "Return a copy of s with the first character uppercased and all remaining characters unchanged. If s is empty, return the empty string. s is any Python string.",
+  "function_signature": "uppercase_first(s)",
+  "reference_solution": "def uppercase_first(s):\n    if len(s) == 0:\n        return s\n    return s[0].upper() + s[1:]\n",
+  "faulty_solution": "def uppercase_first(s):\n    if len(s) == 0:\n        return s\n    return s[0].upper() + s[1:].lower()\n",
+  "test_cases": [
+    {
+      "name": "lowercase",
+      "args": [
+        "hello"
+      ],
+      "expected": "Hello",
+      "kind": "ordinary"
+    },
+    {
+      "name": "mixed_case_rest",
+      "args": [
+        "hELLO"
+      ],
+      "expected": "HELLO",
+      "kind": "adversarial"
+    },
+    {
+      "name": "empty",
+      "args": [
+        ""
+      ],
+      "expected": "",
+      "kind": "edge"
+    },
+    {
+      "name": "single_char",
+      "args": [
+        "a"
+      ],
+      "expected": "A",
+      "kind": "edge"
+    },
+    {
+      "name": "already_capitalized",
+      "args": [
+        "Hello"
+      ],
+      "expected": "Hello",
+      "kind": "ordinary"
+    },
+    {
+      "name": "upper_in_middle",
+      "args": [
+        "aBCD"
+      ],
+      "expected": "ABCD",
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_upper",
+      "args": [
+        "ABC"
+      ],
+      "expected": "ABC",
+      "kind": "edge"
+    },
+    {
+      "name": "space_prefix",
+      "args": [
+        "xYZ"
+      ],
+      "expected": "XYZ",
+      "kind": "ordinary"
+    }
+  ],
+  "named_counterexample": "mixed_case_rest",
+  "bug_explanation": "The faulty solution lowercases the remainder of the string, destroying uppercase characters after the first position.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

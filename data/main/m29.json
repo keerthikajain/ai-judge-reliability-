@@ -1,0 +1,166 @@
+{
+  "id": "m29",
+  "category": "small algorithms",
+  "split": "main_study",
+  "problem_statement": "Return a sorted list of the unique elements that appear in both list1 and list2. list1 and list2 are Python lists of integers (excluding bool). Do not modify the inputs.",
+  "valid_input_domain": "Return a sorted list of the unique elements that appear in both list1 and list2. list1 and list2 are Python lists of integers (excluding bool). Do not modify the inputs.",
+  "function_signature": "sorted_intersection(list1, list2)",
+  "reference_solution": "def sorted_intersection(list1, list2):\n    result = []\n    for v in sorted(set(list1)):\n        if v in list2:\n            result.append(v)\n    return result\n",
+  "faulty_solution": "def sorted_intersection(list1, list2):\n    result = []\n    for v in sorted(list1):\n        if v in list2:\n            result.append(v)\n    return result\n",
+  "test_cases": [
+    {
+      "name": "no_dup_list1",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "dup_in_list1",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "both_empty",
+      "args": [
+        [],
+        []
+      ],
+      "expected": [],
+      "kind": "edge"
+    },
+    {
+      "name": "single_match",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "unsorted_no_dup",
+      "args": [
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_dup_in_list1",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "subset_no_dup",
+      "args": [
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": [
+        4,
+        5,
+        6
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "multiple_dups",
+      "args": [
+        [
+          2,
+          2,
+          4,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        4
+      ],
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "dup_in_list1",
+  "bug_explanation": "The faulty solution iterates over sorted(list1) instead of sorted(set(list1)), so duplicate elements in list1 that are also in list2 appear multiple times in the result.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

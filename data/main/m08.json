@@ -1,0 +1,111 @@
+{
+  "id": "m08",
+  "category": "list transformations",
+  "split": "main_study",
+  "problem_statement": "Return the sum of all integers in values. values is any Python list of integers (excluding bool), including an empty list. For an empty list return 0. Do not modify the input.",
+  "valid_input_domain": "Return the sum of all integers in values. values is any Python list of integers (excluding bool), including an empty list. For an empty list return 0. Do not modify the input.",
+  "function_signature": "sum_list(values)",
+  "reference_solution": "def sum_list(values):\n    total = 0\n    for v in values:\n        total += v\n    return total\n",
+  "faulty_solution": "def sum_list(values):\n    total = 0\n    for v in values[1:]:\n        total += v\n    return total\n",
+  "test_cases": [
+    {
+      "name": "zero_first",
+      "args": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expected": 5,
+      "kind": "ordinary"
+    },
+    {
+      "name": "skip_first",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 5,
+      "kind": "edge"
+    },
+    {
+      "name": "zero_first_three",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero_then_values",
+      "args": [
+        [
+          0,
+          10,
+          20
+        ]
+      ],
+      "expected": 30,
+      "kind": "ordinary"
+    },
+    {
+      "name": "skip_nonzero",
+      "args": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 12,
+      "kind": "ordinary"
+    },
+    {
+      "name": "negative_first",
+      "args": [
+        [
+          -1,
+          2,
+          3
+        ]
+      ],
+      "expected": 4,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "skip_first",
+  "bug_explanation": "The faulty solution iterates over values[1:] instead of values, omitting the first element from the sum.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

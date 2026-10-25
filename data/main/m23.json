@@ -1,0 +1,86 @@
+{
+  "id": "m23",
+  "category": "integer arithmetic and boundaries",
+  "split": "main_study",
+  "problem_statement": "Return the sum of the decimal digits of n. n is a non-negative integer (excluding bool). For n = 0 return 0.",
+  "valid_input_domain": "Return the sum of the decimal digits of n. n is a non-negative integer (excluding bool). For n = 0 return 0.",
+  "function_signature": "digit_sum(n)",
+  "reference_solution": "def digit_sum(n):\n    total = 0\n    while n > 0:\n        total += n % 10\n        n = n // 10\n    return total\n",
+  "faulty_solution": "def digit_sum(n):\n    total = 0\n    while n > 1:\n        total += n % 10\n        n = n // 10\n    return total\n",
+  "test_cases": [
+    {
+      "name": "two_digits",
+      "args": [
+        23
+      ],
+      "expected": 5,
+      "kind": "ordinary"
+    },
+    {
+      "name": "ones",
+      "args": [
+        11
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "nines",
+      "args": [
+        99
+      ],
+      "expected": 18,
+      "kind": "ordinary"
+    },
+    {
+      "name": "ten",
+      "args": [
+        10
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "forty_two",
+      "args": [
+        42
+      ],
+      "expected": 6,
+      "kind": "ordinary"
+    },
+    {
+      "name": "one_oh_one",
+      "args": [
+        101
+      ],
+      "expected": 2,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "ones",
+  "bug_explanation": "The faulty solution uses while n > 1 instead of while n > 0, so the loop exits before processing the final digit when it equals 1.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

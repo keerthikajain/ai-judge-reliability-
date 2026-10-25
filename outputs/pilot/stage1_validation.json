@@ -1,0 +1,904 @@
+{
+  "stage": 1,
+  "generated_at_utc": "2026-10-21T05:29:50.283881+00:00",
+  "python": "3.12.14",
+  "pytest": "8.3.5",
+  "pytest_exit_code": 0,
+  "all_requested_requirements_satisfied": true,
+  "requirements_revision": "Stage 1 valid-input revision, user requested",
+  "faulty_pass_requirement": "Each faulty solution must pass at least one valid test input. This may be an ordinary or boundary case.",
+  "requirement_change_reason": "The p05 range(1, n) bug fails every positive n and passes n=0. The previous ordinary-case requirement conflicted with that bug.",
+  "historical_report": "outputs/pilot/history/stage1_validation_before_requirement_revision.json",
+  "design_exception": null,
+  "llm_calls": 0,
+  "behavioural_conclusions": null,
+  "tests": [
+    {
+      "nodeid": "tests/test_stage1.py::test_inventory",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_schema[p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_schema[p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_schema[p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_schema[p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_schema[p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[reference_solution-p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[reference_solution-p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[reference_solution-p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[reference_solution-p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[reference_solution-p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[faulty_solution-p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[faulty_solution-p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[faulty_solution-p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[faulty_solution-p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_signature_and_simple_code[faulty_solution-p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_reference_cases[p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_reference_cases[p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_reference_cases[p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_reference_cases[p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_reference_cases[p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_counterexample[p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_counterexample[p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_counterexample[p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_counterexample[p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_counterexample[p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_valid_input_pass[p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_valid_input_pass[p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_valid_input_pass[p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_valid_input_pass[p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_faulty_valid_input_pass[p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_sum_zero_passes_and_positive_cases_fail",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[reference_solution-p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[reference_solution-p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[reference_solution-p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[reference_solution-p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[reference_solution-p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[faulty_solution-p01]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[faulty_solution-p02]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[faulty_solution-p03]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[faulty_solution-p04]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_prompt_pair_and_no_metadata[faulty_solution-p05]",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    },
+    {
+      "nodeid": "tests/test_stage1.py::test_allowlist_and_fixed_claim",
+      "phase": "call",
+      "outcome": "passed",
+      "detail": null
+    }
+  ],
+  "pilots": [
+    {
+      "id": "p01",
+      "named_counterexample": "negative_only",
+      "human_review_status": "pending",
+      "results": {
+        "reference_solution": [
+          {
+            "name": "positive",
+            "kind": "ordinary",
+            "expected": 7,
+            "actual": 7,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative_only",
+            "kind": "edge",
+            "expected": -2,
+            "actual": -2,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": -4,
+            "actual": -4,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "zero",
+            "kind": "edge",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "mixed",
+            "kind": "ordinary",
+            "expected": 4,
+            "actual": 4,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "repeated_max",
+            "kind": "ordinary",
+            "expected": 3,
+            "actual": 3,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ],
+        "faulty_solution": [
+          {
+            "name": "positive",
+            "kind": "ordinary",
+            "expected": 7,
+            "actual": 7,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative_only",
+            "kind": "edge",
+            "expected": -2,
+            "actual": 0,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": -4,
+            "actual": 0,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "zero",
+            "kind": "edge",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "mixed",
+            "kind": "ordinary",
+            "expected": 4,
+            "actual": 4,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "repeated_max",
+            "kind": "ordinary",
+            "expected": 3,
+            "actual": 3,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "p02",
+      "named_counterexample": "order_matters",
+      "human_review_status": "pending",
+      "results": {
+        "reference_solution": [
+          {
+            "name": "ascending",
+            "kind": "ordinary",
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "actual": [
+              1,
+              2,
+              3
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "order_matters",
+            "kind": "ordinary",
+            "expected": [
+              3,
+              1,
+              2
+            ],
+            "actual": [
+              3,
+              1,
+              2
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "empty",
+            "kind": "edge",
+            "expected": [],
+            "actual": [],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": [
+              8
+            ],
+            "actual": [
+              8
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "all_same",
+            "kind": "edge",
+            "expected": [
+              2
+            ],
+            "actual": [
+              2
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative_mixed",
+            "kind": "ordinary",
+            "expected": [
+              0,
+              -1,
+              2
+            ],
+            "actual": [
+              0,
+              -1,
+              2
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ],
+        "faulty_solution": [
+          {
+            "name": "ascending",
+            "kind": "ordinary",
+            "expected": [
+              1,
+              2,
+              3
+            ],
+            "actual": [
+              1,
+              2,
+              3
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "order_matters",
+            "kind": "ordinary",
+            "expected": [
+              3,
+              1,
+              2
+            ],
+            "actual": [
+              1,
+              2,
+              3
+            ],
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "empty",
+            "kind": "edge",
+            "expected": [],
+            "actual": [],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": [
+              8
+            ],
+            "actual": [
+              8
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "all_same",
+            "kind": "edge",
+            "expected": [
+              2
+            ],
+            "actual": [
+              2
+            ],
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative_mixed",
+            "kind": "ordinary",
+            "expected": [
+              0,
+              -1,
+              2
+            ],
+            "actual": [
+              -1,
+              0,
+              2
+            ],
+            "matches_expected": false,
+            "input_unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "p03",
+      "named_counterexample": "one",
+      "human_review_status": "pending",
+      "results": {
+        "reference_solution": [
+          {
+            "name": "one",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "zero",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "two",
+            "kind": "edge",
+            "expected": true,
+            "actual": true,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "prime",
+            "kind": "ordinary",
+            "expected": true,
+            "actual": true,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "composite",
+            "kind": "ordinary",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "square",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ],
+        "faulty_solution": [
+          {
+            "name": "one",
+            "kind": "edge",
+            "expected": false,
+            "actual": true,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "negative",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "zero",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "two",
+            "kind": "edge",
+            "expected": true,
+            "actual": true,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "prime",
+            "kind": "ordinary",
+            "expected": true,
+            "actual": true,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "composite",
+            "kind": "ordinary",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "square",
+            "kind": "edge",
+            "expected": false,
+            "actual": false,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "p04",
+      "named_counterexample": "repeated_target",
+      "human_review_status": "pending",
+      "results": {
+        "reference_solution": [
+          {
+            "name": "unique",
+            "kind": "ordinary",
+            "expected": 1,
+            "actual": 1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "repeated_target",
+            "kind": "ordinary",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "empty",
+            "kind": "edge",
+            "expected": -1,
+            "actual": -1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "absent",
+            "kind": "ordinary",
+            "expected": -1,
+            "actual": -1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "last_unique",
+            "kind": "ordinary",
+            "expected": 2,
+            "actual": 2,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ],
+        "faulty_solution": [
+          {
+            "name": "unique",
+            "kind": "ordinary",
+            "expected": 1,
+            "actual": 1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "repeated_target",
+            "kind": "ordinary",
+            "expected": 0,
+            "actual": 2,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "empty",
+            "kind": "edge",
+            "expected": -1,
+            "actual": -1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "absent",
+            "kind": "ordinary",
+            "expected": -1,
+            "actual": -1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "singleton",
+            "kind": "edge",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "last_unique",
+            "kind": "ordinary",
+            "expected": 2,
+            "actual": 2,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "p05",
+      "named_counterexample": "one",
+      "human_review_status": "pending",
+      "results": {
+        "reference_solution": [
+          {
+            "name": "zero",
+            "kind": "boundary",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "one",
+            "kind": "edge",
+            "expected": 1,
+            "actual": 1,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "two",
+            "kind": "ordinary",
+            "expected": 3,
+            "actual": 3,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "five",
+            "kind": "ordinary",
+            "expected": 15,
+            "actual": 15,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "ten",
+            "kind": "ordinary",
+            "expected": 55,
+            "actual": 55,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "hundred",
+            "kind": "ordinary",
+            "expected": 5050,
+            "actual": 5050,
+            "matches_expected": true,
+            "input_unchanged": true
+          }
+        ],
+        "faulty_solution": [
+          {
+            "name": "zero",
+            "kind": "boundary",
+            "expected": 0,
+            "actual": 0,
+            "matches_expected": true,
+            "input_unchanged": true
+          },
+          {
+            "name": "one",
+            "kind": "edge",
+            "expected": 1,
+            "actual": 0,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "two",
+            "kind": "ordinary",
+            "expected": 3,
+            "actual": 1,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "five",
+            "kind": "ordinary",
+            "expected": 15,
+            "actual": 10,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "ten",
+            "kind": "ordinary",
+            "expected": 55,
+            "actual": 45,
+            "matches_expected": false,
+            "input_unchanged": true
+          },
+          {
+            "name": "hundred",
+            "kind": "ordinary",
+            "expected": 5050,
+            "actual": 4950,
+            "matches_expected": false,
+            "input_unchanged": true
+          }
+        ]
+      }
+    }
+  ],
+  "sha256": {
+    "data/pilot/p01.json": "dc161486ca1389b2dfe68a75821a9b626397e3cfc84ac98bde5db6cb53d76241",
+    "data/pilot/p02.json": "a8794e4f4560bb75b4c4951365df2efc214c50fe41e5abd1860eadb918353946",
+    "data/pilot/p03.json": "3238e65ba8cb4219a564115884d3c5170ea1e5f1d2e752cec454ffda23b6c368",
+    "data/pilot/p04.json": "f86014735097cb64313a96a4e1f242df91741be9b70683b814a12908a2a9fb58",
+    "data/pilot/p05.json": "94dd57f7a4c0e493ea99a5fa760f7690e48c894f35d0e681403266b8b80d5299",
+    "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/prompts.py": "6f4b722fd4084c4124eb39375a675b1f7ef076152aa5268f7868ab26cc4cd6ed",
+    "src/run_validation.py": "4d20a06fd01568245e80c82531d6e0593607fc8709869142adab711963d644b6",
+    "src/validation.py": "82250bffc164251853c3fb9687ec8ced4c23e06036cc0ca0495437223943441b",
+    "tests/test_stage1.py": "30911a487c879b9f2254e61e0ce2e00245e5a53373b2fc8795e3fa9163629f2c"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "m06",
+  "category": "list transformations",
+  "split": "main_study",
+  "problem_statement": "Return a new list where each element of values is multiplied by 2. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "valid_input_domain": "Return a new list where each element of values is multiplied by 2. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "function_signature": "double_all(values)",
+  "reference_solution": "def double_all(values):\n    result = []\n    for v in values:\n        result.append(v * 2)\n    return result\n",
+  "faulty_solution": "def double_all(values):\n    result = []\n    for v in values:\n        result.append(v + 2)\n    return result\n",
+  "test_cases": [
+    {
+      "name": "twos_only",
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        4,
+        4
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "simple_values",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        6
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": [],
+      "kind": "edge"
+    },
+    {
+      "name": "single_five",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": [
+        10
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_twos",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        4,
+        4,
+        4
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "mixed_signs",
+      "args": [
+        [
+          -1,
+          2
+        ]
+      ],
+      "expected": [
+        -2,
+        4
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "larger_values",
+      "args": [
+        [
+          10,
+          20
+        ]
+      ],
+      "expected": [
+        20,
+        40
+      ],
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "simple_values",
+  "bug_explanation": "The faulty solution adds 2 instead of multiplying by 2, which only produces the correct result when v equals 2.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

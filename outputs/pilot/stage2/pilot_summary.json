@@ -1,0 +1,175 @@
+{
+  "generated_at_utc": "2026-10-21T18:23:16.604772+00:00",
+  "source_files": {
+    "manifest": "outputs\\pilot\\stage2\\manifest.json",
+    "results": "outputs\\pilot\\stage2\\results.jsonl"
+  },
+  "verification": {
+    "total_results": 20,
+    "ids_match_manifest": true,
+    "unique_request_ids": true,
+    "no_missing_requests": true,
+    "no_extra_requests": true,
+    "coverage_complete": true,
+    "coverage_combinations": 20,
+    "no_dry_run_records": true,
+    "no_pending_records": true,
+    "no_duplicate_outcomes": true,
+    "status_counts": {
+      "completed": 20,
+      "invalid_response": 0,
+      "error": 0
+    },
+    "any_retries": false,
+    "max_retry_count": 0
+  },
+  "model_and_settings": {
+    "model_requested": "gemini-3.5-flash-lite",
+    "model_returned": "gemini-3.5-flash-lite",
+    "model_matches_request": true,
+    "model_version_consistent": true,
+    "sdk_version": "2.11.0",
+    "generation_settings": {
+      "temperature": 0.0,
+      "max_output_tokens": 256,
+      "candidate_count": 1,
+      "top_p": null,
+      "top_k": null,
+      "sdk_retry_attempts": 1,
+      "request_timeout_ms": 60000
+    }
+  },
+  "verdict_counts": {
+    "total": 20,
+    "correct": 10,
+    "incorrect": 10,
+    "invalid_or_error": 0
+  },
+  "faulty_accepted_by_condition": {
+    "A": 0,
+    "B": 0,
+    "A_denominator": 5,
+    "B_denominator": 5,
+    "A_rate": 0.0,
+    "B_rate": 0.0,
+    "B_minus_A_pp": 0.0
+  },
+  "reference_rejected_by_condition": {
+    "A": 0,
+    "B": 0,
+    "A_denominator": 5,
+    "B_denominator": 5,
+    "A_rate": 0.0,
+    "B_rate": 0.0,
+    "B_minus_A_pp": 0.0
+  },
+  "invalid_and_error": {
+    "invalid_response": 0,
+    "error": 0,
+    "total": 0
+  },
+  "paired_verdict_changes": {
+    "total_pairs": 10,
+    "pairs_changed": 0,
+    "A_to_B_changes": 0,
+    "B_to_A_changes": 0,
+    "pairs": [
+      {
+        "problem_id": "p01",
+        "candidate": "faulty_solution",
+        "truth_label": "incorrect",
+        "verdict_A": "incorrect",
+        "verdict_B": "incorrect",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p01",
+        "candidate": "reference_solution",
+        "truth_label": "correct",
+        "verdict_A": "correct",
+        "verdict_B": "correct",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p02",
+        "candidate": "faulty_solution",
+        "truth_label": "incorrect",
+        "verdict_A": "incorrect",
+        "verdict_B": "incorrect",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p02",
+        "candidate": "reference_solution",
+        "truth_label": "correct",
+        "verdict_A": "correct",
+        "verdict_B": "correct",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p03",
+        "candidate": "faulty_solution",
+        "truth_label": "incorrect",
+        "verdict_A": "incorrect",
+        "verdict_B": "incorrect",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p03",
+        "candidate": "reference_solution",
+        "truth_label": "correct",
+        "verdict_A": "correct",
+        "verdict_B": "correct",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p04",
+        "candidate": "faulty_solution",
+        "truth_label": "incorrect",
+        "verdict_A": "incorrect",
+        "verdict_B": "incorrect",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p04",
+        "candidate": "reference_solution",
+        "truth_label": "correct",
+        "verdict_A": "correct",
+        "verdict_B": "correct",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p05",
+        "candidate": "faulty_solution",
+        "truth_label": "incorrect",
+        "verdict_A": "incorrect",
+        "verdict_B": "incorrect",
+        "changed": false,
+        "direction": null
+      },
+      {
+        "problem_id": "p05",
+        "candidate": "reference_solution",
+        "truth_label": "correct",
+        "verdict_A": "correct",
+        "verdict_B": "correct",
+        "changed": false,
+        "direction": null
+      }
+    ]
+  },
+  "accuracy": {
+    "correct_judgments": 20,
+    "total_judgments": 20,
+    "rate": 1.0
+  },
+  "discrepancies": []
+}

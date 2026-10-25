@@ -1,0 +1,171 @@
+{
+  "id": "m07",
+  "category": "list transformations",
+  "split": "main_study",
+  "problem_statement": "Return a new list interleaving elements of list1 and list2, taking one element from list1 then one from list2, in order. Both lists have the same length. list1 and list2 are Python lists of integers. Do not modify the inputs.",
+  "valid_input_domain": "Return a new list interleaving elements of list1 and list2, taking one element from list1 then one from list2, in order. Both lists have the same length. list1 and list2 are Python lists of integers. Do not modify the inputs.",
+  "function_signature": "interleave(list1, list2)",
+  "reference_solution": "def interleave(list1, list2):\n    result = []\n    for i in range(len(list1)):\n        result.append(list1[i])\n        result.append(list2[i])\n    return result\n",
+  "faulty_solution": "def interleave(list1, list2):\n    result = []\n    for i in range(len(list1)):\n        result.append(list2[i])\n        result.append(list1[i])\n    return result\n",
+  "test_cases": [
+    {
+      "name": "distinct_values",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "same_values",
+      "args": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty_lists",
+      "args": [
+        [],
+        []
+      ],
+      "expected": [],
+      "kind": "edge"
+    },
+    {
+      "name": "single_pair",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "three_elements",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": [
+        1,
+        4,
+        2,
+        5,
+        3,
+        6
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_zeros",
+      "args": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "different_values",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "larger_lists",
+      "args": [
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "expected": [
+        7,
+        9,
+        8,
+        10
+      ],
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "distinct_values",
+  "bug_explanation": "The faulty solution appends the list2 element before the list1 element at each step, reversing the required interleaving order.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

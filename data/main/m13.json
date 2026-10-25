@@ -1,0 +1,148 @@
+{
+  "id": "m13",
+  "category": "dictionary/counting operations",
+  "split": "main_study",
+  "problem_statement": "Return a new dictionary merging d1 and d2. For keys present in both, the value is the sum of the two values. For keys in only one dictionary, use that value. d1 and d2 are Python dictionaries with integer values. Do not modify the inputs.",
+  "valid_input_domain": "Return a new dictionary merging d1 and d2. For keys present in both, the value is the sum of the two values. For keys in only one dictionary, use that value. d1 and d2 are Python dictionaries with integer values. Do not modify the inputs.",
+  "function_signature": "merge_dicts(d1, d2)",
+  "reference_solution": "def merge_dicts(d1, d2):\n    result = {}\n    for key in d1:\n        result[key] = d1[key]\n    for key in d2:\n        if key in result:\n            result[key] += d2[key]\n        else:\n            result[key] = d2[key]\n    return result\n",
+  "faulty_solution": "def merge_dicts(d1, d2):\n    result = {}\n    for key in d1:\n        result[key] = d1[key]\n    for key in d2:\n        result[key] = d2[key]\n    return result\n",
+  "test_cases": [
+    {
+      "name": "common_key_sum",
+      "args": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "b": 3,
+          "c": 4
+        }
+      ],
+      "expected": {
+        "a": 1,
+        "b": 5,
+        "c": 4
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_common",
+      "args": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ],
+      "expected": {
+        "a": 1,
+        "b": 2
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "both_empty",
+      "args": [
+        {},
+        {}
+      ],
+      "expected": {},
+      "kind": "edge"
+    },
+    {
+      "name": "disjoint",
+      "args": [
+        {
+          "x": 5
+        },
+        {
+          "y": 10
+        }
+      ],
+      "expected": {
+        "x": 5,
+        "y": 10
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_disjoint",
+      "args": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "c": 3,
+          "d": 4
+        }
+      ],
+      "expected": {
+        "a": 1,
+        "b": 2,
+        "c": 3,
+        "d": 4
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "same_key",
+      "args": [
+        {
+          "a": 1
+        },
+        {
+          "a": 2
+        }
+      ],
+      "expected": {
+        "a": 3
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "first_empty",
+      "args": [
+        {},
+        {
+          "a": 1
+        }
+      ],
+      "expected": {
+        "a": 1
+      },
+      "kind": "edge"
+    },
+    {
+      "name": "all_common",
+      "args": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "b": 1,
+          "a": 1
+        }
+      ],
+      "expected": {
+        "a": 2,
+        "b": 2
+      },
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "common_key_sum",
+  "bug_explanation": "The faulty solution overwrites d1 values with d2 values for common keys instead of summing them.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

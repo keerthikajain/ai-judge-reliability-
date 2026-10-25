@@ -1,0 +1,94 @@
+{
+  "id": "m02",
+  "category": "string processing",
+  "split": "main_study",
+  "problem_statement": "Return True if s is a palindrome (reads the same forwards and backwards), case-insensitively. The entire string is lowercased using str.lower() before comparison. s is any Python string, including an empty string.",
+  "valid_input_domain": "Return True if s is a palindrome (reads the same forwards and backwards), case-insensitively. The entire string is lowercased using str.lower() before comparison. s is any Python string, including an empty string.",
+  "function_signature": "is_palindrome(s)",
+  "reference_solution": "def is_palindrome(s):\n    s = s.lower()\n    left = 0\n    right = len(s) - 1\n    while left < right:\n        if s[left] != s[right]:\n            return False\n        left += 1\n        right -= 1\n    return True\n",
+  "faulty_solution": "def is_palindrome(s):\n    left = 0\n    right = len(s) - 1\n    while left < right:\n        if s[left] != s[right]:\n            return False\n        left += 1\n        right -= 1\n    return True\n",
+  "test_cases": [
+    {
+      "name": "lowercase_palindrome",
+      "args": [
+        "racecar"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "mixed_case_palindrome",
+      "args": [
+        "Racecar"
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    },
+    {
+      "name": "empty_string",
+      "args": [
+        ""
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "single_char",
+      "args": [
+        "a"
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "not_palindrome",
+      "args": [
+        "hello"
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "upper_mixed_palindrome",
+      "args": [
+        "Aba"
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "two_char_no",
+      "args": [
+        "ab"
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_char_yes",
+      "args": [
+        "aa"
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "unicode_case_palindrome",
+      "args": [
+        "\u00c1\u00e1"
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "mixed_case_palindrome",
+  "bug_explanation": "The faulty solution omits the lower() call, so characters differing only in case are treated as different.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

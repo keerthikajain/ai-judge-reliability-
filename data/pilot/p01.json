@@ -1,0 +1,90 @@
+{
+  "id": "p01",
+  "category": "list maximum",
+  "split": "pilot_debug_only",
+  "problem_statement": "Return the largest integer in values. values is a non-empty Python list of integers (excluding bool). Do not modify the input.",
+  "valid_input_domain": "Return the largest integer in values. values is a non-empty Python list of integers (excluding bool). Do not modify the input.",
+  "function_signature": "largest(values)",
+  "reference_solution": "def largest(values):\n    best = values[0]\n    for value in values:\n        if value > best:\n            best = value\n    return best\n",
+  "faulty_solution": "def largest(values):\n    best = 0\n    for value in values:\n        if value > best:\n            best = value\n    return best\n",
+  "test_cases": [
+    {
+      "name": "positive",
+      "args": [
+        [
+          2,
+          7,
+          3
+        ]
+      ],
+      "expected": 7,
+      "kind": "ordinary"
+    },
+    {
+      "name": "negative_only",
+      "args": [
+        [
+          -5,
+          -2,
+          -9
+        ]
+      ],
+      "expected": -2,
+      "kind": "edge"
+    },
+    {
+      "name": "singleton",
+      "args": [
+        [
+          -4
+        ]
+      ],
+      "expected": -4,
+      "kind": "edge"
+    },
+    {
+      "name": "zero",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "mixed",
+      "args": [
+        [
+          -2,
+          4,
+          0
+        ]
+      ],
+      "expected": 4,
+      "kind": "ordinary"
+    },
+    {
+      "name": "repeated_max",
+      "args": [
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    }
+  ],
+  "named_counterexample": "negative_only",
+  "bug_explanation": "Starting best at zero returns zero for an all-negative list, although zero is not in that list.",
+  "provenance": "Custom pilot example, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-21",
+    "reviewer": "human",
+    "method": "interactive review with AI assistance",
+    "notes": "Specification, reference solution, faulty solution and named counterexample verified. Bug confirmed: seeding best at 0 causes incorrect output for all-negative lists. Counterexample negative_only [-5,-2,-9] traced step by step."
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "m12",
+  "category": "dictionary/counting operations",
+  "split": "main_study",
+  "problem_statement": "Return a new dictionary with keys and values of d swapped: each value v in d becomes a key in the result mapping to its original key. When multiple original keys share the same value, the last key encountered in dictionary iteration order wins in the inverted result. d is a Python dictionary with string keys and string values. Do not modify the input.",
+  "valid_input_domain": "Return a new dictionary with keys and values of d swapped: each value v in d becomes a key in the result mapping to its original key. When multiple original keys share the same value, the last key encountered in dictionary iteration order wins in the inverted result. d is a Python dictionary with string keys and string values. Do not modify the input.",
+  "function_signature": "invert_dict(d)",
+  "reference_solution": "def invert_dict(d):\n    result = {}\n    for key in d:\n        result[d[key]] = key\n    return result\n",
+  "faulty_solution": "def invert_dict(d):\n    result = {}\n    for key in d:\n        result[key] = d[key]\n    return result\n",
+  "test_cases": [
+    {
+      "name": "swap_needed",
+      "args": [
+        {
+          "a": "x",
+          "b": "y"
+        }
+      ],
+      "expected": {
+        "x": "a",
+        "y": "b"
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "identity_pairs",
+      "args": [
+        {
+          "a": "a"
+        }
+      ],
+      "expected": {
+        "a": "a"
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty_dict",
+      "args": [
+        {}
+      ],
+      "expected": {},
+      "kind": "edge"
+    },
+    {
+      "name": "single_swap",
+      "args": [
+        {
+          "x": "y"
+        }
+      ],
+      "expected": {
+        "y": "x"
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_identity",
+      "args": [
+        {
+          "a": "a",
+          "b": "b"
+        }
+      ],
+      "expected": {
+        "a": "a",
+        "b": "b"
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "numeric_swap",
+      "args": [
+        {
+          "1": "2",
+          "3": "4"
+        }
+      ],
+      "expected": {
+        "2": "1",
+        "4": "3"
+      },
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_identity",
+      "args": [
+        {
+          "k": "k"
+        }
+      ],
+      "expected": {
+        "k": "k"
+      },
+      "kind": "edge"
+    },
+    {
+      "name": "two_swap",
+      "args": [
+        {
+          "p": "q",
+          "r": "s"
+        }
+      ],
+      "expected": {
+        "q": "p",
+        "s": "r"
+      },
+      "kind": "adversarial"
+    },
+    {
+      "name": "duplicate_values",
+      "args": [
+        {
+          "a": "x",
+          "b": "x"
+        }
+      ],
+      "expected": {
+        "x": "b"
+      },
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "swap_needed",
+  "bug_explanation": "The faulty solution copies key-value pairs unchanged instead of swapping them, returning the original dictionary.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

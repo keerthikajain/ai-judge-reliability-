@@ -1,0 +1,70 @@
+{
+  "id": "p05",
+  "category": "inclusive sum",
+  "split": "pilot_debug_only",
+  "problem_statement": "Return the sum of all integers from 1 through n, including n. n is a Python integer greater than or equal to 0, excluding bool. For n = 0 return 0.",
+  "valid_input_domain": "Return the sum of all integers from 1 through n, including n. n is a Python integer greater than or equal to 0, excluding bool. For n = 0 return 0.",
+  "function_signature": "sum_through(n)",
+  "reference_solution": "def sum_through(n):\n    total = 0\n    for value in range(1, n + 1):\n        total += value\n    return total\n",
+  "faulty_solution": "def sum_through(n):\n    total = 0\n    for value in range(1, n):\n        total += value\n    return total\n",
+  "test_cases": [
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": 0,
+      "kind": "boundary"
+    },
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "two",
+      "args": [
+        2
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "five",
+      "args": [
+        5
+      ],
+      "expected": 15,
+      "kind": "ordinary"
+    },
+    {
+      "name": "ten",
+      "args": [
+        10
+      ],
+      "expected": 55,
+      "kind": "ordinary"
+    },
+    {
+      "name": "hundred",
+      "args": [
+        100
+      ],
+      "expected": 5050,
+      "kind": "ordinary"
+    }
+  ],
+  "named_counterexample": "one",
+  "bug_explanation": "Python range stops before its upper bound, so range(1, n) omits n.",
+  "provenance": "Custom pilot example, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-21",
+    "reviewer": "human",
+    "method": "interactive review with AI assistance",
+    "notes": "Specification, reference solution, faulty solution and named counterexample verified. Bug confirmed: range(1,n) omits n due to Python's exclusive upper bound; for positive n the faulty function sums 1 through n-1. For n=0 both versions use an empty range and both return 0, so the bug causes no incorrect output at that boundary only. Counterexample one (n=1) discussed."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "m21",
+  "category": "integer arithmetic and boundaries",
+  "split": "main_study",
+  "problem_statement": "Return True if n is a positive integer power of 2 (1, 2, 4, 8, ...), otherwise False. n is any Python integer (excluding bool).",
+  "valid_input_domain": "Return True if n is a positive integer power of 2 (1, 2, 4, 8, ...), otherwise False. n is any Python integer (excluding bool).",
+  "function_signature": "power_of_two(n)",
+  "reference_solution": "def power_of_two(n):\n    if n < 1:\n        return False\n    while n > 1:\n        if n % 2 != 0:\n            return False\n        n = n // 2\n    return True\n",
+  "faulty_solution": "def power_of_two(n):\n    if n < 1:\n        return False\n    while n >= 1:\n        if n % 2 != 0:\n            return False\n        n = n // 2\n    return True\n",
+  "test_cases": [
+    {
+      "name": "four",
+      "args": [
+        4
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "six",
+      "args": [
+        6
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "eight",
+      "args": [
+        8
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "three",
+      "args": [
+        3
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "negative",
+      "args": [
+        -2
+      ],
+      "expected": false,
+      "kind": "edge"
+    },
+    {
+      "name": "sixteen",
+      "args": [
+        16
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "four",
+  "bug_explanation": "The faulty solution uses while n >= 1 instead of while n > 1, so the loop continues when n reaches 1 and returns False for all powers of 2.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "m14",
+  "category": "dictionary/counting operations",
+  "split": "main_study",
+  "problem_statement": "Return the element that appears most often in values. If there is a tie, return the element that appears first in values. values is a non-empty Python list of integers (excluding bool). Do not modify the input.",
+  "valid_input_domain": "Return the element that appears most often in values. If there is a tie, return the element that appears first in values. values is a non-empty Python list of integers (excluding bool). Do not modify the input.",
+  "function_signature": "most_frequent(values)",
+  "reference_solution": "def most_frequent(values):\n    best = values[0]\n    best_count = 0\n    for v in values:\n        count = 0\n        for u in values:\n            if u == v:\n                count += 1\n        if count > best_count:\n            best_count = count\n            best = v\n    return best\n",
+  "faulty_solution": "def most_frequent(values):\n    best = values[0]\n    best_count = 0\n    for v in values:\n        count = 0\n        for u in values:\n            if u == v:\n                count += 1\n        if count >= best_count:\n            best_count = count\n            best = v\n    return best\n",
+  "test_cases": [
+    {
+      "name": "clear_winner",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "tie_goes_first",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 1,
+      "kind": "adversarial"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 5,
+      "kind": "edge"
+    },
+    {
+      "name": "all_same",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "first_wins_tie",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "three_way_tie",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_elements",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "negative_tie",
+      "args": [
+        [
+          -1,
+          -2,
+          -1,
+          -2
+        ]
+      ],
+      "expected": -1,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "tie_goes_first",
+  "bug_explanation": "The faulty solution uses >= instead of > for comparison, so ties are resolved in favor of the last occurrence rather than the first.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

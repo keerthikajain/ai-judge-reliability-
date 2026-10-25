@@ -1,0 +1,114 @@
+{
+  "id": "m19",
+  "category": "searching and index handling",
+  "split": "main_study",
+  "problem_statement": "Return True if values is sorted in non-decreasing order (each element is less than or equal to the next), otherwise False. values is any Python list of integers (excluding bool), including an empty list. An empty list and a single-element list are sorted. Do not modify the input.",
+  "valid_input_domain": "Return True if values is sorted in non-decreasing order (each element is less than or equal to the next), otherwise False. values is any Python list of integers (excluding bool), including an empty list. An empty list and a single-element list are sorted. Do not modify the input.",
+  "function_signature": "is_sorted(values)",
+  "reference_solution": "def is_sorted(values):\n    for i in range(len(values) - 1):\n        if values[i] > values[i + 1]:\n            return False\n    return True\n",
+  "faulty_solution": "def is_sorted(values):\n    for i in range(len(values) - 1):\n        if values[i] >= values[i + 1]:\n            return False\n    return True\n",
+  "test_cases": [
+    {
+      "name": "strictly_increasing",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "with_duplicates",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "single",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true,
+      "kind": "edge"
+    },
+    {
+      "name": "decreasing",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_equal",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": true,
+      "kind": "ordinary"
+    },
+    {
+      "name": "valley",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "kind": "ordinary"
+    },
+    {
+      "name": "plateau",
+      "args": [
+        [
+          5,
+          5,
+          6
+        ]
+      ],
+      "expected": true,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "with_duplicates",
+  "bug_explanation": "The faulty solution uses >= instead of >, rejecting lists with equal adjacent elements that are still sorted in non-decreasing order.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

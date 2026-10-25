@@ -1,0 +1,102 @@
+{
+  "id": "m05",
+  "category": "string processing",
+  "split": "main_study",
+  "problem_statement": "Return a copy of s where every occurrence of character old is replaced with character new. Characters not equal to old are left unchanged. s is any Python string; old and new are single character strings.",
+  "valid_input_domain": "Return a copy of s where every occurrence of character old is replaced with character new. Characters not equal to old are left unchanged. s is any Python string; old and new are single character strings.",
+  "function_signature": "replace_char(s, old, new)",
+  "reference_solution": "def replace_char(s, old, new):\n    result = \"\"\n    for ch in s:\n        if ch == old:\n            result = result + new\n        else:\n            result = result + ch\n    return result\n",
+  "faulty_solution": "def replace_char(s, old, new):\n    result = \"\"\n    for ch in s:\n        if ch == old:\n            result = result + old\n        else:\n            result = result + ch\n    return result\n",
+  "test_cases": [
+    {
+      "name": "replace_l",
+      "args": [
+        "hello",
+        "l",
+        "x"
+      ],
+      "expected": "hexxo",
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_target",
+      "args": [
+        "hello",
+        "z",
+        "x"
+      ],
+      "expected": "hello",
+      "kind": "ordinary"
+    },
+    {
+      "name": "replace_all",
+      "args": [
+        "aaa",
+        "a",
+        "b"
+      ],
+      "expected": "bbb",
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty_string",
+      "args": [
+        "",
+        "a",
+        "b"
+      ],
+      "expected": "",
+      "kind": "edge"
+    },
+    {
+      "name": "single_replace",
+      "args": [
+        "x",
+        "x",
+        "y"
+      ],
+      "expected": "y",
+      "kind": "edge"
+    },
+    {
+      "name": "same_old_new",
+      "args": [
+        "abc",
+        "b",
+        "b"
+      ],
+      "expected": "abc",
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_change",
+      "args": [
+        "no_change",
+        "z",
+        "y"
+      ],
+      "expected": "no_change",
+      "kind": "ordinary"
+    },
+    {
+      "name": "multiple_replace",
+      "args": [
+        "multiple",
+        "l",
+        "L"
+      ],
+      "expected": "muLtipLe",
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "replace_l",
+  "bug_explanation": "The faulty solution appends old instead of new when a match is found, leaving the string unchanged.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

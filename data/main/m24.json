@@ -1,0 +1,86 @@
+{
+  "id": "m24",
+  "category": "integer arithmetic and boundaries",
+  "split": "main_study",
+  "problem_statement": "Return the number of decimal digits in n. n is a non-negative integer (excluding bool). For n = 0 return 1.",
+  "valid_input_domain": "Return the number of decimal digits in n. n is a non-negative integer (excluding bool). For n = 0 return 1.",
+  "function_signature": "count_digits(n)",
+  "reference_solution": "def count_digits(n):\n    if n == 0:\n        return 1\n    count = 0\n    while n > 0:\n        n = n // 10\n        count += 1\n    return count\n",
+  "faulty_solution": "def count_digits(n):\n    if n == 0:\n        return 1\n    count = 0\n    while n > 1:\n        n = n // 10\n        count += 1\n    return count\n",
+  "test_cases": [
+    {
+      "name": "two_digits_msd2",
+      "args": [
+        42
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_digits_msd1",
+      "args": [
+        11
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "zero",
+      "args": [
+        0
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "one",
+      "args": [
+        1
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "two_digits_msd9",
+      "args": [
+        99
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "ten",
+      "args": [
+        10
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "hundred",
+      "args": [
+        100
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "one_twenty_three",
+      "args": [
+        123
+      ],
+      "expected": 3,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "two_digits_msd1",
+  "bug_explanation": "The faulty solution uses while n > 1 instead of while n > 0, so the loop exits one iteration early when n reaches 1, undercounting by 1.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

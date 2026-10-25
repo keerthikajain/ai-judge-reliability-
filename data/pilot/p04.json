@@ -1,0 +1,93 @@
+{
+  "id": "p04",
+  "category": "linear search",
+  "split": "pilot_debug_only",
+  "problem_statement": "Return the smallest zero-based index i for which values[i] equals target, or -1 if absent. values is any Python list of integers, including an empty list; target is an integer. Exclude bool from integer inputs. Do not modify the input.",
+  "valid_input_domain": "Return the smallest zero-based index i for which values[i] equals target, or -1 if absent. values is any Python list of integers, including an empty list; target is an integer. Exclude bool from integer inputs. Do not modify the input.",
+  "function_signature": "first_index(values, target)",
+  "reference_solution": "def first_index(values, target):\n    for i, value in enumerate(values):\n        if value == target:\n            return i\n    return -1\n",
+  "faulty_solution": "def first_index(values, target):\n    found = -1\n    for i, value in enumerate(values):\n        if value == target:\n            found = i\n    return found\n",
+  "test_cases": [
+    {
+      "name": "unique",
+      "args": [
+        [
+          4,
+          5,
+          6
+        ],
+        5
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "repeated_target",
+      "args": [
+        [
+          8,
+          2,
+          8
+        ],
+        8
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        [],
+        2
+      ],
+      "expected": -1,
+      "kind": "edge"
+    },
+    {
+      "name": "absent",
+      "args": [
+        [
+          1,
+          2
+        ],
+        9
+      ],
+      "expected": -1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "singleton",
+      "args": [
+        [
+          7
+        ],
+        7
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "last_unique",
+      "args": [
+        [
+          -1,
+          0,
+          3
+        ],
+        3
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    }
+  ],
+  "named_counterexample": "repeated_target",
+  "bug_explanation": "Each later match overwrites the stored index, returning the last match instead of the first.",
+  "provenance": "Custom pilot example, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-21",
+    "reviewer": "human",
+    "method": "interactive review with AI assistance",
+    "notes": "Specification, reference solution, faulty solution and named counterexample verified. Bug confirmed: faulty version scans entire list and overwrites found on each match, returning last index instead of first. Counterexample repeated_target [8,2,8] target=8 discussed. Absent case correctly passes because no match occurs so overwriting never triggers. Both list elements and target exclude bool per spec."
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "m01",
+  "category": "string processing",
+  "split": "main_study",
+  "problem_statement": "Return the number of vowels (a, e, i, o, u) in string s, counted case-insensitively. Case-insensitivity is applied by calling str.lower() on each character before checking membership in the vowel set. s is any Python string, including an empty string.",
+  "valid_input_domain": "Return the number of vowels (a, e, i, o, u) in string s, counted case-insensitively. Case-insensitivity is applied by calling str.lower() on each character before checking membership in the vowel set. s is any Python string, including an empty string.",
+  "function_signature": "count_vowels(s)",
+  "reference_solution": "def count_vowels(s):\n    count = 0\n    for ch in s:\n        if ch.lower() in \"aeiou\":\n            count += 1\n    return count\n",
+  "faulty_solution": "def count_vowels(s):\n    count = 0\n    for ch in s:\n        if ch in \"aeiou\":\n            count += 1\n    return count\n",
+  "test_cases": [
+    {
+      "name": "lowercase_only",
+      "args": [
+        "hello"
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "uppercase_vowels",
+      "args": [
+        "HELLO"
+      ],
+      "expected": 2,
+      "kind": "adversarial"
+    },
+    {
+      "name": "empty_string",
+      "args": [
+        ""
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "no_vowels",
+      "args": [
+        "xyz"
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_vowels_lower",
+      "args": [
+        "aeiou"
+      ],
+      "expected": 5,
+      "kind": "ordinary"
+    },
+    {
+      "name": "all_vowels_upper",
+      "args": [
+        "AEIOU"
+      ],
+      "expected": 5,
+      "kind": "edge"
+    },
+    {
+      "name": "mixed_consonants",
+      "args": [
+        "bcdfg"
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_uppercase_vowel",
+      "args": [
+        "A"
+      ],
+      "expected": 1,
+      "kind": "boundary"
+    },
+    {
+      "name": "unicode_non_ascii",
+      "args": [
+        "\u03a3"
+      ],
+      "expected": 0,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "uppercase_vowels",
+  "bug_explanation": "The faulty solution checks ch against lowercase vowels only, so uppercase vowels like E and O are not counted.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

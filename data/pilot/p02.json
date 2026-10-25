@@ -1,0 +1,109 @@
+{
+  "id": "p02",
+  "category": "stable deduplication",
+  "split": "pilot_debug_only",
+  "problem_statement": "Return a new list containing each integer from values exactly once, in first-occurrence order. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "valid_input_domain": "Return a new list containing each integer from values exactly once, in first-occurrence order. values is any Python list of integers (excluding bool), including an empty list. Do not modify the input.",
+  "function_signature": "deduplicate(values)",
+  "reference_solution": "def deduplicate(values):\n    result = []\n    for value in values:\n        if value not in result:\n            result.append(value)\n    return result\n",
+  "faulty_solution": "def deduplicate(values):\n    return sorted(set(values))\n",
+  "test_cases": [
+    {
+      "name": "ascending",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "order_matters",
+      "args": [
+        [
+          3,
+          1,
+          3,
+          2
+        ]
+      ],
+      "expected": [
+        3,
+        1,
+        2
+      ],
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        []
+      ],
+      "expected": [],
+      "kind": "edge"
+    },
+    {
+      "name": "singleton",
+      "args": [
+        [
+          8
+        ]
+      ],
+      "expected": [
+        8
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "all_same",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        2
+      ],
+      "kind": "edge"
+    },
+    {
+      "name": "negative_mixed",
+      "args": [
+        [
+          0,
+          -1,
+          0,
+          2,
+          -1
+        ]
+      ],
+      "expected": [
+        0,
+        -1,
+        2
+      ],
+      "kind": "ordinary"
+    }
+  ],
+  "named_counterexample": "order_matters",
+  "bug_explanation": "Sorting removes duplicates but changes the required first-occurrence order.",
+  "provenance": "Custom pilot example, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-21",
+    "reviewer": "human",
+    "method": "interactive review with AI assistance",
+    "notes": "Specification, reference solution, faulty solution and named counterexample verified. Bug confirmed: sorted(set(...)) removes duplicates but a set does not guarantee first-occurrence order; the explicit sorted() then imposes numeric order. Counterexample order_matters [3,1,3,2] discussed. Note: ascending is a false pass because first-occurrence order coincidentally matches numeric order for that input."
+  }
+}

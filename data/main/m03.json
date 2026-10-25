@@ -1,0 +1,94 @@
+{
+  "id": "m03",
+  "category": "string processing",
+  "split": "main_study",
+  "problem_statement": "Return the number of times character c appears in string s. s is any Python string (including empty); c is a single character string.",
+  "valid_input_domain": "Return the number of times character c appears in string s. s is any Python string (including empty); c is a single character string.",
+  "function_signature": "count_occurrences(s, c)",
+  "reference_solution": "def count_occurrences(s, c):\n    count = 0\n    for ch in s:\n        if ch == c:\n            count += 1\n    return count\n",
+  "faulty_solution": "def count_occurrences(s, c):\n    count = 0\n    for ch in s:\n        if ch == c:\n            count = 1\n    return count\n",
+  "test_cases": [
+    {
+      "name": "two_occurrences",
+      "args": [
+        "hello",
+        "l"
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_occurrence",
+      "args": [
+        "hello",
+        "h"
+      ],
+      "expected": 1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "no_occurrence",
+      "args": [
+        "abc",
+        "z"
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty_string",
+      "args": [
+        "",
+        "a"
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "all_same_char",
+      "args": [
+        "aaa",
+        "a"
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "alternating",
+      "args": [
+        "ababab",
+        "b"
+      ],
+      "expected": 3,
+      "kind": "ordinary"
+    },
+    {
+      "name": "single_char_match",
+      "args": [
+        "x",
+        "x"
+      ],
+      "expected": 1,
+      "kind": "edge"
+    },
+    {
+      "name": "four_occurrences",
+      "args": [
+        "mississippi",
+        "s"
+      ],
+      "expected": 4,
+      "kind": "adversarial"
+    }
+  ],
+  "named_counterexample": "two_occurrences",
+  "bug_explanation": "The faulty solution assigns 1 instead of incrementing, so it returns at most 1 for any count above zero.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}

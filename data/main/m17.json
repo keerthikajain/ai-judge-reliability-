@@ -1,0 +1,150 @@
+{
+  "id": "m17",
+  "category": "searching and index handling",
+  "split": "main_study",
+  "problem_statement": "Return the zero-based index of target in sorted_list using binary search, or -1 if target is absent. When the list contains duplicate elements equal to target, any index pointing to target is a valid result. sorted_list is a Python list of integers sorted in non-decreasing order (excluding bool), including an empty list; target is an integer. Do not modify the input.",
+  "valid_input_domain": "Return the zero-based index of target in sorted_list using binary search, or -1 if target is absent. When the list contains duplicate elements equal to target, any index pointing to target is a valid result. sorted_list is a Python list of integers sorted in non-decreasing order (excluding bool), including an empty list; target is an integer. Do not modify the input.",
+  "function_signature": "binary_search(sorted_list, target)",
+  "reference_solution": "def binary_search(sorted_list, target):\n    left = 0\n    right = len(sorted_list) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if sorted_list[mid] == target:\n            return mid\n        elif sorted_list[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n",
+  "faulty_solution": "def binary_search(sorted_list, target):\n    left = 0\n    right = len(sorted_list) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if sorted_list[mid] == target:\n            return mid\n        elif sorted_list[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n",
+  "test_cases": [
+    {
+      "name": "middle_element",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        3
+      ],
+      "expected": 2,
+      "kind": "ordinary"
+    },
+    {
+      "name": "last_element",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        5
+      ],
+      "expected": 4,
+      "kind": "ordinary"
+    },
+    {
+      "name": "empty",
+      "args": [
+        [],
+        1
+      ],
+      "expected": -1,
+      "kind": "edge"
+    },
+    {
+      "name": "single_found",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 0,
+      "kind": "edge"
+    },
+    {
+      "name": "first_element",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        1
+      ],
+      "expected": 0,
+      "kind": "ordinary"
+    },
+    {
+      "name": "absent",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        9
+      ],
+      "expected": -1,
+      "kind": "ordinary"
+    },
+    {
+      "name": "two_element_found",
+      "args": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 1,
+      "kind": "boundary"
+    },
+    {
+      "name": "large_list_last",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        10
+      ],
+      "expected": 9,
+      "kind": "adversarial"
+    },
+    {
+      "name": "duplicates_present",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 2,
+      "kind": "ordinary",
+      "validation": "index_in_bounds"
+    }
+  ],
+  "named_counterexample": "last_element",
+  "bug_explanation": "The faulty solution uses left < right instead of left <= right, so the loop exits without checking the element when left equals right.",
+  "provenance": "Custom main-study task, drafted with AI assistance. Not copied from a benchmark; no novelty claim.",
+  "human_review_status": "reviewed_with_ai_assistance",
+  "human_review_record": {
+    "date": "2026-10-22",
+    "reviewer": "human",
+    "method": "AI-assisted batch review",
+    "notes": "Specification, reference solution, faulty solution, named counterexample, test cases, prompt privacy and bug patterns reviewed with AI assistance. Independent oracle verified all expected values. Not independently human-verified."
+  }
+}
